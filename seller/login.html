@@ -1,0 +1,29 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link rel="stylesheet" href="css/login.css" />
+        <link rel="icon" href="utilities/logo.png" type="image/icon type">
+    </head>
+    <body>
+        <div class="logo">
+            <img src="utilities/logo.png" alt="Logo">
+        </div>
+        <div class="content">
+            <div class="flex-div form">
+                <form action="/login" method="post">
+                    <h1>Login</h1>
+                    <input type="text" name="username" placeholder="Email or Phone Number">
+                    <input type="password" name="password" placeholder="Password"><br>
+                    <button class="login" type="submit" name="button">Log In</button>
+                    <hr>
+                </form>
+                <form action="/newReg" method="get">
+                    <button class="create-account" type="submit">Create New Account</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Google Maps Search Results</title>
+		<link rel="stylesheet" href="css/ex.css">
+		<link rel="icon" href="utilities/logo.png" type="image/icon type">
+	</head>
+	<body>
+		<header>
+			<img class="smallLogo" src="utilities/smallLogo.png" alt="Logo">
+		</header>
+		<main>
+            
+			<div class="search-results-column">
+                <span> "Fresh food places near you "</span>
+                <!-- <% for(var i = 0; i < companyItems.length; i++) { %> -->
+				<div class="search-result">
+					<div class="search-result-content">
+						<div class="search-result-title">
+                            <form action="/userSelected" method="post">
+                                <button class="sbut" type="submit" name="company" value="<%= companyItems[i].Company.CompName %>"><%= companyItems[i].Company.CompName %></button>
+                            </form>    
+                        </div>
+						<div class="search-result-address"><%= companyItems[i].Company.Address.address1%></div>
+						<div class="search-result-address"><%= companyItems[i].Company.Address.city%></div>
+						<div class="search-result-address"><%= companyItems[i].Company.Address.zipcode%></div>
+						<div class="search-result-rating">
+							<img src="https://via.placeholder.com/16x16.png?text=Rating" alt="Rating">
+							<span>4.5 stars</span>
+						</div>
+					</div>
+				</div>
+                <!-- <% } %> -->
+				<!-- <div class="search-result">
+					<div class="search-result-image">
+						<img src="https://picsum.photos/id/1021/50/50" alt="Result 2">
+					</div> -->
+					<!-- <div class="search-result-content">
+						<div class="search-result-title">Result 2 Title</div>
+						<div class="search-result-description">Result 2 Description</div>
+						<div class="search-result-address">456 Peachtree St, Atlanta, GA 30308</div>
+						<div class="search-result-rating">
+							<img src="https://via.placeholder.com/16x16.png?text=Rating" alt="Rating">
+							<span>4.0 stars</span>
+						</div>
+					</div>
+				</div>
+				<div class="search-result">
+					<div class="search-result-image">
+						<img src="https://picsum.photos/id/1025/50/50" alt="Result 3">
+					</div>
+					<div class="search-result-content">
+						<div class="search-result-title">Result 3 Title</div>
+						<div class="search-result-description">Result 3 Description</div>
+						<div class="search-result-address">789 Peachtree St, Atlanta, GA 30309</div>
+						<div class="search-result-rating">
+							<img src="https://via.placeholder.com/16x16.png?text=Rating" alt="Rating">
+							<span>3.5 stars</span>
+						</div>
+					</div>
+				</div> -->
+			</div>
+			<div class="map-column">
+				<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3319.810655711625!2d-84.387982!3d33.748995!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDU3...8JzIuMyUyMENhcHRhaW4lMjAtJTIwQ2l0eS0zNTM2NSUyMC0lMjBDYXJvbGluYSUyMC0lMjBBbHRhJTIwQ2FsbGVk!5e0!3m2!1sen!2sus!4v1646151914495!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+			</div>
+		</main>
+		<footer>
+			<p>&copy; Food Oasis</p>
+		</footer>
+	</body>
+</html>
+
+            

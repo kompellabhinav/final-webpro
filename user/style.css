@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing : border-box;
+    font-family : 'poppins' , sans-serif;
+}
+
+.container{
+    width: 100%;
+    min-height: 100vh;
+    padding: 5%;
+    background-image : linear-gradient(rgba(0,8,51,0.8),rgba(0,0,50,0.0.9)),url(/Users/subhashpathuri/Downloads/SWE/buddha-bowl-dish-with-vegetables-legumes-top-view_1150-42589.avif);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-bar{
+    width: 300px;
+    max-width: 700px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px;
+}
+.search-bar button img{
+    border: 0;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}

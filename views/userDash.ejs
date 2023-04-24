@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="icon" href="../utilities/logo.png" type="image/icon type">
+</head>
+<body>
+    <div class="logo">
+      <img src="../utilities/logo.png" alt="Logo">
+    </div>
+    <h1 class="title">Inventory</h1>
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Date</th>
+            <th>Inventory</th>
+          </tr>
+        <% for(var i = 0; i < newListItems.items.length; i++) { %>
+            <tr>
+                <th><%= i+1 %></th>
+                <th><%= newListItems.items[i].Name %></th>
+                <th><%= newListItems.items[i].Category %></th>
+                <th><%= newListItems.items[i].Date %></th>
+                <th><%= newListItems.items[i].Inventory %></th>
+            </tr>
+        <% } %>
+        </thead>
+      </table>
+    </div>
+</body>
+</html>
