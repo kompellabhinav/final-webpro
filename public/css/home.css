@@ -34,12 +34,12 @@ body {
   /* Sections */
   
   .colored-section {
-    background-color: #78bc3f;
+    background-color: #27374D;
     color: #fff;
   }
   
   .white-section {
-    background-color: #eefbeb;
+    background-color: #c6d1da;
   }
   
   /* Navigation Bar */
@@ -72,7 +72,7 @@ body {
   /* Title Section */
   
   #title {
-    background-color: #78bc3f;
+    background-color: #27374D;
     color: #fff;
     text-align: left;
   }
@@ -84,10 +84,10 @@ body {
   /* Title Image */
   
   .title-image {
-    width: 60%;
+    width: 80%;
     position: absolute;
-    right: 30%;
-    bottom: 20px;
+    right: 15%;
+    bottom: 3px;
   }
   
   /* Features Section */
@@ -105,18 +105,19 @@ body {
   }
   
   .icon {
-    color: #70cd72;
+    color: #859bac;
+    ;
     margin-bottom: 1rem;
   }
   
   .icon:hover {
-    color: #78bc3f;
+    color: #27374D;
   }
   
   /* Testimonial Section */
   
   #testimonials {
-    background-color: #70cd72;
+    background-color: #526D82;
   }
   
   .testimonial-text {
@@ -132,7 +133,7 @@ body {
   
   
   #press {
-    background-color: #70cd72;
+    background-color: #526D82;
     padding-bottom: 3%;
   }
   

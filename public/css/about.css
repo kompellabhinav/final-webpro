@@ -1,0 +1,38 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #27374D;
+    color: #000000;
+}
+
+img {
+    border-radius: 50%;
+}
+
+
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #000000;
+}
+
+h2 {
+    color: #000000;
+}
+
+.about-section p,
+.project-section p,
+.technology-section p,
+.learned-section p {
+    margin-bottom: 20px;
+}

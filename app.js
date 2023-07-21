@@ -1,4 +1,3 @@
-// external modules
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -25,54 +24,59 @@ mongoose.connect(uri)
 //--------------------
 
 const userSchema = {
-    firstName: String,
-    lastName: String,
+    fullName: String,
     email: String,
     password: String,
-    Company: {
-        CompName: String,
-        Address: {
-            address1: String,
-            city: String,
-            state: String,
-            country: String,
-            zipcode: Number
-        }
-    },
-    items: [{
-        Name: String,
-        Category: String,
-        Date: String,
-        Inventory: Number
+    dates: String,
+    workout: [{
+        name: String, 
+        body: String,
+        sets: Number,
+        maxWeight: Number
     }]
 }
 
-var user_name
+var user_name;
 
-const User = new mongoose.model("User", userSchema)
+const User = new mongoose.model("Records", userSchema)
 
-// var userData =  new User({
-//     firstName: "Subhash",
-//     lastName: "Pathuri",
-//     email: "subhash@gmail.com",
-//     password: "subhash",
-//     Company: {
-//         CompName: "Healthier",
-//         Address: 30302,
-//         "Hours of Operation": "M-F: 10am to 5pm"
-//     },
-//     items: [{
-//         Name: "Tomato",
-//         Category: "Vegetable",
-//         Date: "4/16",
-//         Inventory: 9
+//-------------------------------------
+//      CREATING INITIAL USER
+//-------------------------------------
+
+// var userData = new User({
+//     fullName: "John Doe",
+//     email: "johndoe@gmail.com",
+//     password: "john",
+//     date: "7/20/2023",     
+//     workout: [{
+//         name: "Bench Press",
+//         body: "Chest",
+//         sets: 4,
+//         maxWeight: 185 
+//     }]
+// })
+
+// var userData = new User({
+//     fullName: "Web Programming",
+//     email: "demouser",
+//     password: "ThisIsForWPClass",
+//     date: "7/21/2023",     
+//     workout: [{
+//         name: "Deadlifts",
+//         body: "Back",
+//         sets: 4,
+//         maxWeight: 245 
 //     }]
 // })
 
 // userData.save()
 
-// Handling get request on home route.
-app.get("/", function (req, res) {
+//--------------------
+//     HOMEPAGE
+//--------------------
+
+app.get("/", function(req, res){
     res.sendFile(__dirname + "/home.html");
 })
 
@@ -80,9 +84,8 @@ app.get("/", function (req, res) {
 //     LOGIN
 //--------------------
 
-
 app.get("/login", function(req, res) {
-    res.sendFile(__dirname + "/seller/login.html");
+    res.sendFile(__dirname + "/signup/login.html");
 })
 
 app.post("/login", function(req, res) {
@@ -107,7 +110,9 @@ app.post("/login", function(req, res) {
                 // res.sendFile(__dirname + "/seller/dashboard.html")
                 User.findOne({email: emailEntered})
                     .then(function(foundItems){
-                        console.log(foundItems.items._id)
+                        console.log("Password correct");
+                        // console.log(foundItems.workout._id);
+                        // console.log(foundItems.items._id)
                         res.render("dashboard", {newListItems: foundItems});
         })
            }
@@ -127,136 +132,46 @@ app.post("/login", function(req, res) {
 })
 
 //--------------------
+//     REQ PAGES
+//--------------------
+
+app.get("/about", function(req, res){
+    res.sendFile(__dirname + "/about.html")
+})
+
+app.get("/description", function(req, res){
+    res.sendFile(__dirname + "/description.html")
+})
+
+app.get("/checklist", function(req, res){
+    res.sendFile(__dirname + "/checklist.html")
+})
+
+//--------------------
 //     REGISTER
 //--------------------
 
-app.get("/register", function(req, res) {
-    res.sendFile(__dirname + "/seller/register/register.html");
-})
 
-app.get("/registeri", function(req, res){
-    res.sendFile(__dirname +"/seller/register/register.html")
-})
-
-app.post("/registeri", function(req, res){
-    res.redirect("/registeri")
-})
-
-app.get("/newReg", function(req, res){
-    res.sendFile(__dirname + "/seller/register/newReg.html")
-})
-
-app.post("/newReg", function(req, res){
-    var fname = req.body.firstname;
-    var lname = req.body.lastname;
-    var email = req.body.email;
-    var password = req.body.password;
-      
-    var compName = req.body.compName;
-    var addressLine1 = req.body.address1;
-    var city = req.body.city;
-    var country = req.body.country;
-    var state = req.body.state;
-    var zip = req.body.zipcode;
-
-    console.log(fname)
-    console.log(lname)
-    console.log(email)
-      
-    // Creating a new user with entered credentials.
-    var newuser = new User({
-        firstName: fname,
-        lastName: lname,  
-        email : email,
-        password : password,
-        Company: {
-            CompName: compName,
-            Address: {
-                address1: addressLine1,
-                city: city,
-                state: state,
-                country: country,
-                zipcode: zip
-            }
-        }
-    })
-
-      
-    // Saving the newuser.
-    newuser.save();
-    console.log("saved successfully");
-
-    User.find()
-        .then(function(foudIt){
-            console.log(foudIt)
-        })
-
-    user_name = email
-      
-        // Sending the response that user
-        // is saved successfully
-    res.redirect("/dashboard")
-
+app.get("/register", function(req, res){
+    res.sendFile(__dirname + "/signup/register.html")
 })
 
 app.post("/register", function(req, res){
-    // console.log(req.body);
-        
-    // Getting the email and password entered
-    // by the user
-    var fname = req.body.fname;
-    var lname = req.body.lname;
+    var fullName = req.body.fullName;
     var email = req.body.email;
     var password = req.body.password;
-      
-    // Creating a new user with entered credentials.
-    var newuser = new User({
-        firstName: fname,
-        lastName: lname,  
-        email : email,
-        password : password
+
+    // Creating new user
+    var newUser = new User({
+        fullName: fullName,
+        email: email,
+        password: password
     })
+    newUser.save();
+    console.log("Saved Successfully");
+    user_name = email;
 
-      
-    // Saving the newuser.
-    newuser.save();
-    console.log("saved successfully");
-
-    user_name = email
-      
-    // Sending the response that user
-    // is saved successfully
-    res.redirect("/info")
-})
-
-//--------------------
-//     INFO
-//--------------------
-app.get("/info", function(req, res){
-    res.sendFile(__dirname + "/seller/info.html");
-})
-
-app.post("/info", function(req, res){
-
-    console.log("Reached info")
-    var cName = req.body.cName;
-    var zCode = req.body.zCode;
-    var hours = req.body.hours;
-
-    User.findOneAndUpdate({email: user_name}, {$set: {Company: 
-        {
-            CompName: cName,
-            Address: zCode,
-            "Hours of Operation": hours
-        }}})
-        .then(function(){
-            console.log("Company details update Success")
-        })
-        .catch(function(err){
-            console.log(err)
-        })
-    console.log(cName, zCode, user_name)
-    res.redirect("/dashboard")  
+    res.redirect("/dashboard");
 })
 
 //--------------------
@@ -275,102 +190,43 @@ app.get("/dashboard", function(req, res){
             .catch(function(err){
                 console.log(err)
             })
-
 })
 
 app.post("/dashboard", function(req, res){
-
     const newName = req.body.newName;
-    const newCategory = req.body.newCategory;
-    const newDate = req.body.newDate;
-    const newInventory =  req.body.newInventory;
-    console.log(user_name +"from post dashboard")
-    User.findOneAndUpdate({email: user_name}, { $addToSet: {items: {
-        Name: newName, 
-        Category: newCategory, 
-        Date: newDate, 
-        Inventory: newInventory
+    const newBody = req.body.newBody;
+    const newSet = req.body.newSet;
+    const newWeight =  req.body.newWeight;
+
+    console.log(user_name + " from post dashboard");
+    User.findOneAndUpdate({email: user_name}, { $addToSet: {workout: {
+        name: newName,
+        body: newBody,
+        sets: newSet,
+        maxWeight: newWeight
     }}})
         .then(function(){
-            console.log("Update Success")
-            res.redirect("/dashboard") 
-        })
-     
-})
-
-app.post("/dashboardDelete", function(req, res){
-    const deleteitem = req.body.deleteButton
-    
-    User.findOneAndUpdate({email: user_name}, {$pull: {
-        items: {
-            Name: deleteitem
-        }
-    }})
-        .then(function(dataFound){
-            console.log(dataFound)
-        })
-
-    
-    console.log(deleteitem)
-    res.redirect("/dashboard")
-})
-
-app.post("/dashboardUpdate", function(req, res){
-
-})
-
-//--------------------
-//       USER
-//--------------------
-
-app.get("/user", function(req, res){
-    res.sendFile(__dirname +"/user/userSearch.html")
-})
-
-app.post("/user", function(req, res){
-    res.redirect("/user")
-})
-
-app.post("/search", function(req, res){
-    var zipcode = req.body.zipCode
-    console.log(zipcode)
-
-    User.find({'Company.Address.zipcode': zipcode})
-        .then(function(found){
-            console.log(found)
-            res.render("searchResult", {companyItems: found});
+            console.log("Update Success");
+            res.redirect("/dashboard");
         })
 })
 
-app.post("/userSelected", function(req, res){
-    var user_n = req.body.company
-    console.log(user_n)
-    User.findOne({'Company.CompName': user_n})
-        .then(function(found){
-            console.log(found)
-            res.render("userDash", {newListItems: found})
-        })
-})
+// app.post("/dashboardDelete", function(req, res){
+//     const deleteItem = req.body.deleteButton;
 
-User.findOne({firstName: 'Test3fn'})
-.then(function(found){
-    console.log(found.Company.Address.zipcode)
-    
-})
-
-User.find({'Company.Address.zipcode': 30303})
-.then(function(found){
-    console.log(found)
-    // res.render("searchResult", {companyItems: found});
-})
-
-// Allowing app to listen on port 3000
-
-// User.findOne({'Company.CompName': 'Healthier'})
-//         .then(function(found){
-//             console.log(found.items)
+//     User.findOneAndUpdate({email: user_name}, {$pull: {
+//         date: {
+//             workout: {
+//                 name: deleteItem
+//             }
+//         }
+//     }})
+//         .then(function(dataFound){
+//             console.log(dataFound)
 //         })
-        
+// })
+
+
 app.listen(3000, function () {
-	console.log("server started successfully");
+    console.log("server started successfully");
 })
