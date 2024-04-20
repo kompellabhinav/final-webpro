@@ -1,147 +1,142 @@
-
-h1{
-    position: relative;
-    top: 90px;
-    font-size: 30px;
-    color: #f9f9f9;
-    text-transform: uppercase;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 15px;
+h1 {
+  position: relative;
+  top: 90px;
+  font-size: 30px;
+  color: #000;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
 .title {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
-table{
-    width:100%;
-    table-layout: fixed;
+table {
+  width: 100%;
+  table-layout: fixed;
 }
 
 .aButton {
-    
-    position: relative;
-    background-color:#004613;
-    border-radius:4px;
-    border:1px solid #004007;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:18px;
-    padding:12px 18px;
-    text-decoration:none;
-    text-shadow:1px 1px 0px #2f6627;
-    width: 75px;
+  position: relative;
+  background-color: #004613;
+  border-radius: 4px;
+  border: 1px solid #004007;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 18px;
+  padding: 12px 18px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #2f6627;
+  width: 75px;
 }
 
 .aButton:hover {
-    background-color: #27374D;
+  background-color: #27374d;
 }
 
 .logo {
-    position: absolute;
-    top: -25px;
-    left: 2px;
+  position: absolute;
+  top: -25px;
+  left: 2px;
 }
 
 img {
-    width: 15%;
-    height: auto;
+  width: 15%;
+  height: auto;
 }
 
 .uname {
-    position: absolute;
-    right: 2%;
-    top: 1px;
-    text-transform: none;
-    color: #fafafa;
-    font-weight: bold;
+  position: absolute;
+  right: 2%;
+  top: 1px;
+  text-transform: none;
+  font-weight: bold;
 }
-.tbl-header{
-    position: relative;
-    top: 100px;
-    left: 10%;
-    background-color: rgba(255, 255, 255, 0.692);
-    width: 75%;
-    margin: 0px 50px;
-}
-
-th{
-    padding: 20px 15px;
-    text-align: left;
-    font-weight: 500;
-    font-size: 12px;
-    color: #000000;
-    text-transform: uppercase;
+.tbl-header {
+  position: relative;
+  top: 100px;
+  left: 10%;
+  background-color: rgba(255, 255, 255, 0.692);
+  width: 75%;
+  margin: 0px 50px;
 }
 
-td{
-    padding: 15px;
-    text-align: left;
-    vertical-align:middle;
-    font-weight: 300;
-    font-size: 12px;
-    color: #000000;
-    border-bottom: solid 1px rgba(255,255,255,0.1);
+th {
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #000000;
+  text-transform: uppercase;
 }
-  
+
+td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #000000;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+}
+
 .uButton {
-    background-color:#44c767;
-    border-radius:42px;
-    border:1px solid #18ab29;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:12px;
-    padding:12px 18px;
-    text-decoration:none;
-    text-shadow:1px 1px 0px #2f6627;
+  background-color: #44c767;
+  border-radius: 42px;
+  border: 1px solid #18ab29;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 12px;
+  padding: 12px 18px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #2f6627;
 }
 .uButton:hover {
-      background-color:#5cbf2a;
+  background-color: #5cbf2a;
 }
-
 
 .dButton {
-    background-color:#da0000;
-    border-radius:42px;
-    border:1px solid #910000;
-    display:inline-block;
-    cursor:pointer;
-    color:#ffffff;
-    font-family:Arial;
-    font-size:12px;
-    padding:12px 18px;
-    text-decoration:none;
-    text-shadow:1px 1px 0px #2f6627;
+  background-color: #da0000;
+  border-radius: 42px;
+  border: 1px solid #910000;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 12px;
+  padding: 12px 18px;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #2f6627;
 }
 .dButton:hover {
-    background-color:#910000;
+  background-color: #910000;
 }
 .dButton:active {
-    position:relative;
-    top:1px;
+  position: relative;
+  top: 1px;
 }
-  
 
 html {
-    background-color: #27374D;
-    background-image: -webkit-linear-gradient(65deg, #E4E9FD 50%, #27374D 50%);
-    min-height: 1000px;
-    font-family: 'helvetica neue';
-  }
+  background-color: #27374d;
+  background-image: -webkit-linear-gradient(65deg, #000 50%, #92ff1e 50%);
+  min-height: 1000px;
+  font-family: "helvetica neue";
+}
 
-  input[type="text"] {
-    border: none;
-    background: transparent;
-    font-size: 20px;
-    font-weight: 200;
-  }
-  
-  input[type="text"]:focus {
-    outline: none;
-    box-shadow: inset 0 -3px 0 0 #27374D;
-  }
+input[type="text"] {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 200;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: inset 0 -3px 0 0 #27374d;
+}
